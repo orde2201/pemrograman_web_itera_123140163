@@ -2,6 +2,8 @@
 
 Aplikasi web sederhana untuk membantu mahasiswa mengelola tugas akademik dengan efisien.
 
+Nama : I Gede Krisna Yoga Saputra
+NIM : 123140163
 ---
 
 ## 📖 Tentang Aplikasi
