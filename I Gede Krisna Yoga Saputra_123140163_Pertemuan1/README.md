@@ -65,7 +65,7 @@ Aplikasi ini memungkinkan mahasiswa untuk mencatat, mengatur, dan melacak tugas-
 *Error message muncul saat field kosong atau deadline tidak valid*
 
 ### 5. localStorage di DevTools
-![DevTools](screenshot-localstorage.png)
+![DevTools](assets/screenshot_20251018_135223.png)
 *Data tersimpan di localStorage browser (DevTools > Application > Local Storage)*
 
 ---
@@ -81,20 +81,12 @@ my-task-app/
 └── script.js
 ```
 
-### Langkah 2: Aktifkan localStorage
-Buka file `script.js` dan **uncomment** (hapus tanda `//`) pada 4 baris berikut:
-
-- **Baris 9:** Load data dari localStorage
-- **Baris 159:** Simpan saat tambah/edit tugas
-- **Baris 177:** Simpan saat hapus tugas
-- **Baris 187:** Simpan saat toggle status
-
-### Langkah 3: Jalankan Aplikasi
+### Langkah 2: Jalankan Aplikasi
 - Double-click file `index.html`, atau
 - Klik kanan → Open with → Pilih browser, atau
 - Drag file `index.html` ke browser
 
-### Langkah 4: Verifikasi localStorage
+### Langkah 3: Verifikasi localStorage
 1. Buka DevTools (tekan F12)
 2. Pilih tab **Application** (Chrome) atau **Storage** (Firefox)
 3. Klik **Local Storage** di sidebar
@@ -211,29 +203,5 @@ aplikasi-manajemen-tugas/
 
 ---
 
-## ❓ FAQ
-
-**Q: Apakah data aman?**  
-A: Data tersimpan di browser Anda sendiri, tidak dikirim ke server manapun.
-
-**Q: Apakah bisa diakses dari HP/komputer lain?**  
-A: Tidak. localStorage hanya tersimpan di browser yang digunakan.
-
-**Q: Bagaimana jika clear browser data?**  
-A: Data akan hilang. Backup dengan copy data dari DevTools > Local Storage.
-
-**Q: Apakah perlu internet?**  
-A: Tidak. Aplikasi 100% offline setelah file ada di komputer.
-
-**Q: Berapa banyak tugas yang bisa disimpan?**  
-A: Sekitar 25,000+ tugas (limit localStorage 5-10 MB).
-
----
-
-## 📝 Lisensi
-
-Project ini dibuat untuk keperluan tugas praktikum dan pembelajaran.
-
----
 
 **Dibuat untuk Tugas Praktikum - Pemrograman Web**
