@@ -176,7 +176,7 @@ localStorage adalah API browser untuk menyimpan data secara permanen dalam bentu
 ## 📁 Struktur Project
 
 ```
-aplikasi-manajemen-tugas/
+directory/
 │
 ├── index.html          # Struktur HTML (layout, form, task list)
 ├── style.css           # Styling minimalist (monochrome design)
@@ -188,20 +188,6 @@ aplikasi-manajemen-tugas/
 - CSS3 (Responsive Design)
 - JavaScript Vanilla (ES6)
 - localStorage API
-
----
-
-## 🌐 Browser yang Didukung
-
-| Browser | Versi Minimum |
-|---------|---------------|
-| Chrome | 4+ |
-| Firefox | 3.5+ |
-| Safari | 4+ |
-| Edge | 12+ |
-| Opera | 10.5+ |
-
----
 
 
 **Dibuat untuk Tugas Praktikum - Pemrograman Web**
