@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Tugas Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Manajemen Tugas</h1>
+            <p>Kelola tugas akademik Anda</p>
+        </header>
+
+        <!-- Statistics -->
+        <section class="stats">
+            <div class="stat-card">
+                <span class="stat-label">Total</span>
+                <span class="stat-value" id="totalTasks">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Belum</span>
+                <span class="stat-value" id="pendingTasks">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Selesai</span>
+                <span class="stat-value" id="completedTasks">0</span>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <section class="controls">
+            <input type="text" id="searchInput" placeholder="Cari tugas..." class="search-input">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="semua">Semua</button>
+                <button class="filter-btn" data-filter="belum">Belum</button>
+                <button class="filter-btn" data-filter="selesai">Selesai</button>
+            </div>
+        </section>
+
+        <!-- Add Button -->
+        <button class="btn-add" id="showFormBtn">+ Tambah Tugas</button>
+
+        <!-- Form -->
+        <section class="form-section" id="formContainer">
+            <h2 id="formTitle">Tambah Tugas</h2>
+            <div class="form-group">
+                <label for="taskName">Nama Tugas <span class="required">*</span></label>
+                <input type="text" id="taskName" placeholder="Masukkan nama tugas">
+                <span class="error-msg" id="errorName">Nama tugas wajib diisi</span>
+            </div>
+            <div class="form-group">
+                <label for="taskCourse">Mata Kuliah <span class="required">*</span></label>
+                <input type="text" id="taskCourse" placeholder="Masukkan mata kuliah">
+                <span class="error-msg" id="errorCourse">Mata kuliah wajib diisi</span>
+            </div>
+            <div class="form-group">
+                <label for="taskDeadline">Deadline <span class="required">*</span></label>
+                <input type="date" id="taskDeadline">
+                <span class="error-msg" id="errorDeadline">Deadline tidak valid</span>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" id="submitBtn">Simpan</button>
+                <button class="btn btn-secondary" id="cancelBtn">Batal</button>
+            </div>
+        </section>
+
+        <!-- Tasks List -->
+        <section class="tasks-list" id="tasksContainer"></section>
+       
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
