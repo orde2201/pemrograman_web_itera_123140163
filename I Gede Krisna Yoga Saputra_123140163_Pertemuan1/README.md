@@ -1,197 +1,79 @@
 # 📚 Aplikasi Manajemen Tugas Mahasiswa
 
-> Aplikasi web sederhana berbasis HTML, CSS, dan JavaScript untuk membantu mahasiswa mengelola tugas-tugas akademik dengan efisien dan terorganisir.
-
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+Aplikasi web sederhana untuk membantu mahasiswa mengelola tugas akademik dengan efisien.
 
 ---
 
-## 📖 Daftar Isi
+## 📖 Tentang Aplikasi
 
-- [Tentang Aplikasi](#-tentang-aplikasi)
-- [Fitur-Fitur](#-fitur-fitur)
-- [Screenshot Aplikasi](#-screenshot-aplikasi)
-- [Cara Menjalankan Aplikasi](#-cara-menjalankan-aplikasi)
-- [Penjelasan Teknis](#-penjelasan-teknis)
-- [Struktur Project](#-struktur-project)
-- [Browser yang Didukung](#-browser-yang-didukung)
-- [FAQ](#-faq)
+Aplikasi ini memungkinkan mahasiswa untuk mencatat, mengatur, dan melacak tugas-tugas kuliah mereka. Data disimpan secara permanen di browser menggunakan localStorage, sehingga tidak memerlukan koneksi internet atau server.
 
----
+## ✨ Fitur yang Diimplementasikan
 
-## 🎯 Tentang Aplikasi
+### 1. **CRUD Operations (Create, Read, Update, Delete)**
+- ➕ Tambah tugas baru (nama tugas, mata kuliah, deadline)
+- 👁️ Lihat semua tugas dalam bentuk card
+- ✏️ Edit informasi tugas
+- 🗑️ Hapus tugas dengan konfirmasi
 
-**Aplikasi Manajemen Tugas Mahasiswa** adalah aplikasi web yang dirancang khusus untuk membantu mahasiswa dalam:
+### 2. **Validasi Form**
+- Nama tugas tidak boleh kosong
+- Mata kuliah wajib diisi
+- Deadline harus valid dan tidak boleh tanggal yang sudah lewat
+- Pesan error yang jelas untuk setiap field
 
-- ✅ Mencatat semua tugas kuliah dengan terstruktur
-- ✅ Mengatur deadline dan prioritas tugas
-- ✅ Melacak progress penyelesaian tugas
-- ✅ Menyimpan data secara permanen tanpa perlu server
-- ✅ Mencari dan memfilter tugas dengan mudah
-
-Aplikasi ini menggunakan **localStorage** untuk menyimpan data langsung di browser, sehingga:
-- Tidak memerlukan koneksi internet
-- Data tersimpan permanen (tidak hilang saat browser ditutup)
-- Tidak memerlukan registrasi atau login
-- Gratis dan mudah digunakan
-
----
-
-## ✨ Fitur-Fitur
-
-### 1. **Manajemen Tugas Lengkap (CRUD)** 📝
-
-| Fitur | Deskripsi |
-|-------|-----------|
-| ➕ **Create** | Tambah tugas baru dengan informasi nama tugas, mata kuliah, dan deadline |
-| 👁️ **Read** | Tampilkan semua tugas dalam bentuk card yang informatif |
-| ✏️ **Update** | Edit informasi tugas yang sudah ada |
-| 🗑️ **Delete** | Hapus tugas dengan konfirmasi untuk menghindari kesalahan |
-
-### 2. **Validasi Form Otomatis** ✅
-
-Sistem validasi yang memastikan data valid sebelum disimpan:
-
-- **Nama Tugas**: Tidak boleh kosong
-- **Mata Kuliah**: Wajib diisi
-- **Deadline**: Harus tanggal yang valid dan tidak boleh tanggal yang sudah lewat
-- **Error Handling**: Menampilkan pesan error yang jelas untuk setiap field yang tidak valid
-
-### 3. **Penyimpanan Data Permanen** 💾
-
-- Menggunakan **localStorage** browser
-- Data tersimpan meskipun browser ditutup
+### 3. **Penyimpanan Data (localStorage)**
+- Data tersimpan permanen di browser
 - Auto-save setiap kali ada perubahan
-- Kapasitas hingga 5-10 MB
+- Data tetap ada meskipun browser ditutup
 
-### 4. **Filter dan Pencarian Real-time** 🔍
+### 4. **Filter & Pencarian**
+- Filter berdasarkan status (Semua, Belum Selesai, Selesai)
+- Search box untuk mencari tugas berdasarkan nama atau mata kuliah
+- Real-time filtering
 
-**Filter Berdasarkan Status:**
-- Semua tugas
-- Tugas belum selesai
-- Tugas yang sudah selesai
-
-**Pencarian:**
-- Search box untuk mencari tugas
-- Pencarian berdasarkan nama tugas atau mata kuliah
-- Real-time filtering (hasil langsung muncul saat mengetik)
-
-### 5. **Dashboard Statistik** 📊
-
-Menampilkan informasi penting:
+### 5. **Dashboard Statistik**
 - Total jumlah tugas
-- Jumlah tugas yang belum selesai
-- Jumlah tugas yang sudah diselesaikan
+- Jumlah tugas belum selesai
+- Jumlah tugas selesai
 - Update otomatis setiap ada perubahan
 
-### 6. **Fitur Tambahan** ⭐
-
-- ✅ **Toggle Status**: Tandai tugas sebagai selesai/belum selesai dengan satu klik
-- ✅ **Deadline Alert**: Indikator visual untuk tugas dengan deadline mendesak (≤ 3 hari)
-- ✅ **Format Tanggal Indonesia**: Tanggal ditampilkan dalam format bahasa Indonesia
-- ✅ **Desain Minimalist**: UI yang bersih, sederhana, dan mudah digunakan
-- ✅ **Responsive Design**: Tampilan optimal di desktop, tablet, dan mobile
-- ✅ **Empty State**: Pesan informatif saat belum ada tugas
+### 6. **Fitur Tambahan**
+- Toggle status selesai/belum dengan checkbox
+- Alert visual untuk deadline mendesak (≤ 3 hari)
+- Format tanggal bahasa Indonesia
+- Desain minimalist dan responsive
 
 ---
 
 ## 📸 Screenshot Aplikasi
 
-### 1. Halaman Utama dengan Dashboard Statistik
-```
-┌─────────────────────────────────────────────┐
-│     Manajemen Tugas Mahasiswa               │
-│     Kelola tugas akademik Anda              │
-├─────────────────────────────────────────────┤
-│  ┌──────┐  ┌──────┐  ┌──────┐              │
-│  │Total │  │Belum │  │Selesai│             │
-│  │  5   │  │  3   │  │  2   │              │
-│  └──────┘  └──────┘  └──────┘              │
-└─────────────────────────────────────────────┘
-```
-*Dashboard menampilkan statistik tugas secara real-time*
+### 1. Dashboard & Statistik
+![Dashboard](screenshot-dashboard.png)
+*Tampilan utama dengan dashboard statistik yang menampilkan total tugas, tugas belum selesai, dan tugas selesai*
 
-### 2. Form Tambah/Edit Tugas dengan Validasi
-```
-┌─────────────────────────────────────────────┐
-│  Tambah Tugas                               │
-├─────────────────────────────────────────────┤
-│  Nama Tugas *                               │
-│  [Essay Filsafat Pendidikan_______]         │
-│                                             │
-│  Mata Kuliah *                              │
-│  [Pemrograman Web_________________]         │
-│                                             │
-│  Deadline *                                 │
-│  [30/10/2024]                              │
-│                                             │
-│  [Simpan]  [Batal]                         │
-└─────────────────────────────────────────────┘
-```
-*Form input dengan validasi real-time untuk setiap field*
+### 2. Form Input Tugas
+![Form](screenshot-form.png)
+*Form untuk menambah/edit tugas dengan 3 field: nama tugas, mata kuliah, dan deadline*
 
-### 3. Daftar Tugas dengan Filter dan Pencarian
-```
-┌─────────────────────────────────────────────┐
-│  [Cari tugas...___________] 🔍             │
-│  [Semua] [Belum] [Selesai]                 │
-├─────────────────────────────────────────────┤
-│  ☐ Essay Filsafat Pendidikan      ✏️ 🗑️   │
-│     Pemrograman Web | 30 Okt 2024 ⚠️      │
-├─────────────────────────────────────────────┤
-│  ☑ Tugas Algoritma Sorting        ✏️ 🗑️   │
-│     Struktur Data | 15 Okt 2024           │
-├─────────────────────────────────────────────┤
-│  ☐ Laporan Praktikum Database    ✏️ 🗑️    │
-│     Basis Data | 5 Nov 2024               │
-└─────────────────────────────────────────────┘
-```
-*Daftar tugas dengan filter status dan fitur pencarian*
+### 3. Daftar Tugas dengan Filter
+![Task List](screenshot-tasklist.png)
+*Daftar tugas dengan fitur search, filter berdasarkan status, dan action buttons (edit & delete)*
 
-### 4. Validasi Form - Error State
-```
-┌─────────────────────────────────────────────┐
-│  Tambah Tugas                               │
-├─────────────────────────────────────────────┤
-│  Nama Tugas *                               │
-│  [________________________] ← border merah  │
-│  ❌ Nama tugas wajib diisi                  │
-│                                             │
-│  Mata Kuliah *                              │
-│  [________________________] ← border merah  │
-│  ❌ Mata kuliah wajib diisi                 │
-│                                             │
-│  Deadline *                                 │
-│  [15/10/2024____________] ← border merah    │
-│  ❌ Deadline tidak boleh tanggal lewat      │
-└─────────────────────────────────────────────┘
-```
-*Validasi menampilkan error message yang jelas*
+### 4. Validasi Form
+![Validation](screenshot-validation.png)
+*Error message muncul saat field kosong atau deadline tidak valid*
 
-### 5. Deadline Alert (Tugas Mendesak)
-```
-┌─────────────────────────────────────────────┐
-│  ☐ Submit Proposal Skripsi        ✏️ 🗑️   │
-│     Metodologi Penelitian                   │
-│     📅 19 Okt 2024 ⚠️  ← Warning merah     │
-└─────────────────────────────────────────────┘
-```
-*Alert visual untuk tugas dengan deadline ≤ 3 hari*
+### 5. localStorage di DevTools
+![DevTools](screenshot-localstorage.png)
+*Data tersimpan di localStorage browser (DevTools > Application > Local Storage)*
 
 ---
 
 ## 🚀 Cara Menjalankan Aplikasi
 
-### Metode 1: Download dan Jalankan Langsung
-
-#### Langkah 1: Download File
-Download atau salin ketiga file berikut:
-- `index.html`
-- `style.css`
-- `script.js`
-
-#### Langkah 2: Simpan dalam Satu Folder
+### Langkah 1: Persiapan File
+Pastikan ketiga file berada dalam satu folder:
 ```
 my-task-app/
 ├── index.html
@@ -199,308 +81,103 @@ my-task-app/
 └── script.js
 ```
 
-#### Langkah 3: Aktifkan localStorage
-Buka file `script.js` dan **uncomment** (hapus `//` di awal) 4 baris berikut:
+### Langkah 2: Aktifkan localStorage
+Buka file `script.js` dan **uncomment** (hapus tanda `//`) pada 4 baris berikut:
 
-**Baris 9:**
-```javascript
-// Hapus // di baris ini
-tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-```
+- **Baris 9:** Load data dari localStorage
+- **Baris 159:** Simpan saat tambah/edit tugas
+- **Baris 177:** Simpan saat hapus tugas
+- **Baris 187:** Simpan saat toggle status
 
-**Baris 159:**
-```javascript
-// Hapus // di baris ini
-localStorage.setItem('tasks', JSON.stringify(tasks));
-```
+### Langkah 3: Jalankan Aplikasi
+- Double-click file `index.html`, atau
+- Klik kanan → Open with → Pilih browser, atau
+- Drag file `index.html` ke browser
 
-**Baris 177:**
-```javascript
-// Hapus // di baris ini
-localStorage.setItem('tasks', JSON.stringify(tasks));
-```
-
-**Baris 187:**
-```javascript
-// Hapus // di baris ini
-localStorage.setItem('tasks', JSON.stringify(tasks));
-```
-
-#### Langkah 4: Jalankan Aplikasi
-- **Cara 1**: Double-click file `index.html`
-- **Cara 2**: Klik kanan `index.html` → Open with → Pilih browser
-- **Cara 3**: Drag file `index.html` ke browser
-
-#### Langkah 5: Mulai Gunakan! 🎉
-Aplikasi siap digunakan dan data akan tersimpan permanen.
-
----
-
-### Metode 2: Menggunakan Live Server (untuk Development)
-
-Jika Anda menggunakan VS Code:
-
-1. Install extension "Live Server"
-2. Klik kanan pada `index.html`
-3. Pilih "Open with Live Server"
-4. Aplikasi akan terbuka di `http://localhost:5500`
+### Langkah 4: Verifikasi localStorage
+1. Buka DevTools (tekan F12)
+2. Pilih tab **Application** (Chrome) atau **Storage** (Firefox)
+3. Klik **Local Storage** di sidebar
+4. Lihat key `tasks` dengan data JSON
 
 ---
 
 ## 🔧 Penjelasan Teknis
 
-### 1. localStorage Implementation
+### 1. localStorage
 
-#### Apa itu localStorage?
-localStorage adalah API browser yang memungkinkan penyimpanan data key-value secara permanen di browser pengguna.
+**Apa itu localStorage?**
+localStorage adalah API browser untuk menyimpan data secara permanen dalam bentuk key-value pairs.
 
-#### Cara Kerja di Aplikasi:
+**Cara Kerja:**
+- Data disimpan dalam format JSON string
+- Kapasitas: 5-10 MB per domain
+- Data persisten (tidak hilang saat browser ditutup)
+- Hanya bisa diakses dari browser yang sama
 
-**a) Struktur Data**
-```javascript
-// Data disimpan dalam format JSON
-{
-  "id": 1729123456789,           // Timestamp sebagai unique ID
-  "nama": "Essay Filsafat",      // Nama tugas
-  "mataKuliah": "Pemrograman Web", // Mata kuliah
-  "deadline": "2024-10-30",      // Format YYYY-MM-DD
-  "selesai": false,              // Status boolean
-  "tanggalDibuat": "2024-10-16T10:30:00.000Z" // ISO timestamp
-}
+**Implementasi di Aplikasi:**
+
+| Operasi | Fungsi | Keterangan |
+|---------|--------|------------|
+| **Simpan** | `localStorage.setItem('tasks', JSON.stringify(tasks))` | Convert array ke JSON string lalu simpan |
+| **Ambil** | `JSON.parse(localStorage.getItem('tasks'))` | Ambil JSON string lalu convert ke array |
+| **Hapus** | `localStorage.removeItem('tasks')` | Hapus data tasks |
+
+**Kapan Data Disimpan:**
+- Saat menambah tugas baru
+- Saat mengedit tugas
+- Saat menghapus tugas
+- Saat mengubah status selesai/belum
+
+**Format Data:**
+```json
+[
+  {
+    "id": 1729123456789,
+    "nama": "Essay Filsafat Pendidikan",
+    "mataKuliah": "Pemrograman Web",
+    "deadline": "2024-10-30",
+    "selesai": false,
+    "tanggalDibuat": "2024-10-16T10:30:00.000Z"
+  }
+]
 ```
-
-**b) Menyimpan Data (Save)**
-```javascript
-// Convert array JavaScript ke JSON string
-localStorage.setItem('tasks', JSON.stringify(tasks));
-
-// Penjelasan:
-// - tasks: array JavaScript berisi object tugas
-// - JSON.stringify(): convert array menjadi text JSON
-// - localStorage hanya bisa simpan text, tidak bisa simpan object/array langsung
-```
-
-**c) Mengambil Data (Load)**
-```javascript
-// Ambil JSON string dari localStorage dan convert ke array
-tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-// Penjelasan:
-// - localStorage.getItem(): ambil text JSON dari storage
-// - JSON.parse(): convert text JSON kembali ke array JavaScript
-// - || []: jika null (belum ada data), gunakan array kosong
-```
-
-**d) Kapan Data Disimpan**
-```javascript
-// 1. Saat menambah tugas baru
-function handleSubmit() {
-    // ... proses tambah tugas
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// 2. Saat mengedit tugas
-function editTask(id) {
-    // ... proses edit
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// 3. Saat menghapus tugas
-function deleteTask(id) {
-    tasks = tasks.filter(t => t.id !== id);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-// 4. Saat toggle status selesai
-function toggleComplete(id) {
-    task.selesai = !task.selesai;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-```
-
-**e) Load Data Saat Aplikasi Dibuka**
-```javascript
-document.addEventListener('DOMContentLoaded', function() {
-    // Load data dari localStorage
-    tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    
-    // Render ke UI
-    renderTasks();
-    updateStats();
-});
-```
-
-#### Keuntungan localStorage:
-- ✅ Data persisten (tidak hilang saat browser ditutup)
-- ✅ Tidak perlu server atau database
-- ✅ Tidak perlu koneksi internet
-- ✅ Cepat dan mudah digunakan
-- ✅ Kapasitas 5-10 MB (cukup untuk ribuan tugas)
-
-#### Limitasi localStorage:
-- ❌ Data hanya tersimpan di browser yang sama
-- ❌ Data hilang jika clear browser data
-- ❌ Tidak bisa diakses dari device lain
-- ❌ Tidak ada enkripsi (jangan simpan data sensitif)
 
 ---
 
-### 2. Validasi Form Implementation
+### 2. Validasi Form
 
-#### Tujuan Validasi:
-- Memastikan data yang masuk valid dan lengkap
-- Mencegah error saat pemrosesan data
-- Memberikan feedback yang jelas kepada user
-- Meningkatkan user experience
+**Tujuan Validasi:**
+- Memastikan data lengkap dan valid
+- Mencegah error saat pemrosesan
+- Memberikan feedback yang jelas ke user
 
-#### Proses Validasi:
+**Aturan Validasi:**
 
-**a) Struktur Validasi**
-```javascript
-function validateForm() {
-    clearErrors();        // Hapus error sebelumnya
-    let isValid = true;   // Flag validasi
-    
-    // Ambil nilai dari form
-    const name = document.getElementById('taskName').value.trim();
-    const course = document.getElementById('taskCourse').value.trim();
-    const deadline = document.getElementById('taskDeadline').value;
-    
-    // Validasi setiap field
-    // ... (lihat detail di bawah)
-    
-    return isValid;  // Return true jika semua valid
-}
-```
+| Field | Validasi | Error Message |
+|-------|----------|---------------|
+| Nama Tugas | Tidak boleh kosong | "Nama tugas wajib diisi" |
+| Mata Kuliah | Tidak boleh kosong | "Mata kuliah wajib diisi" |
+| Deadline | Harus diisi & tidak boleh tanggal lewat | "Deadline tidak valid" |
 
-**b) Validasi Nama Tugas**
-```javascript
-// Cek apakah nama tugas kosong
-if (!name) {
-    // Tambah class error pada input (border merah)
-    document.getElementById('taskName').classList.add('error');
-    
-    // Tampilkan pesan error
-    document.getElementById('errorName').classList.add('show');
-    
-    // Set flag validasi ke false
-    isValid = false;
-}
+**Proses Validasi:**
+1. User klik tombol "Simpan"
+2. Sistem cek setiap field (nama, mata kuliah, deadline)
+3. Jika ada error:
+   - Tampilkan border merah pada field
+   - Tampilkan pesan error di bawah field
+   - Stop proses simpan
+4. Jika semua valid:
+   - Simpan data ke array
+   - Update localStorage
+   - Render ulang tampilan
+   - Tutup form
 
-// Logika:
-// - trim() menghapus spasi di awal dan akhir
-// - !name bernilai true jika string kosong
-```
-
-**c) Validasi Mata Kuliah**
-```javascript
-// Sama seperti validasi nama
-if (!course) {
-    document.getElementById('taskCourse').classList.add('error');
-    document.getElementById('errorCourse').classList.add('show');
-    isValid = false;
-}
-```
-
-**d) Validasi Deadline**
-```javascript
-// Cek 1: Apakah deadline diisi?
-if (!deadline) {
-    document.getElementById('taskDeadline').classList.add('error');
-    document.getElementById('errorDeadline').classList.add('show');
-    isValid = false;
-} else {
-    // Cek 2: Apakah deadline bukan tanggal yang sudah lewat?
-    const selectedDate = new Date(deadline);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);  // Reset jam ke 00:00:00
-    
-    if (selectedDate < today) {
-        document.getElementById('taskDeadline').classList.add('error');
-        document.getElementById('errorDeadline').classList.add('show');
-        document.getElementById('errorDeadline').textContent = 
-            'Deadline tidak boleh tanggal yang sudah lewat';
-        isValid = false;
-    }
-}
-
-// Logika:
-// - new Date(deadline) convert string ke object Date
-// - selectedDate < today membandingkan tanggal
-// - setHours(0,0,0,0) memastikan perbandingan hanya tanggal, bukan waktu
-```
-
-**e) Clear Error State**
-```javascript
-function clearErrors() {
-    // Hapus semua pesan error
-    document.querySelectorAll('.error-msg').forEach(msg => {
-        msg.classList.remove('show');
-    });
-    
-    // Hapus border merah dari semua input
-    document.querySelectorAll('.form-group input').forEach(input => {
-        input.classList.remove('error');
-    });
-}
-
-// Dipanggil saat:
-// - User mulai validasi baru
-// - User submit form
-// - User cancel form
-```
-
-**f) Mencegah Submit Jika Tidak Valid**
-```javascript
-function handleSubmit() {
-    // Jalankan validasi
-    if (!validateForm()) {
-        return;  // Stop eksekusi jika validasi gagal
-    }
-    
-    // Lanjut proses simpan data jika validasi berhasil
-    // ...
-}
-```
-
-#### CSS untuk Error State:
-```css
-/* Input dengan error */
-.form-group input.error {
-    border-color: #e53e3e;  /* Border merah */
-}
-
-/* Pesan error (default hidden) */
-.error-msg {
-    display: none;
-    font-size: 12px;
-    color: #e53e3e;
-    margin-top: 6px;
-}
-
-/* Tampilkan pesan error */
-.error-msg.show {
-    display: block;
-}
-```
-
-#### Flow Validasi Lengkap:
-```
-User klik "Simpan"
-    ↓
-Panggil validateForm()
-    ↓
-Clear error sebelumnya
-    ↓
-Cek nama tugas → Kosong? → Tampilkan error
-    ↓
-Cek mata kuliah → Kosong? → Tampilkan error
-    ↓
-Cek deadline → Kosong atau lewat? → Tampilkan error
-    ↓
-Semua valid? → Return true → Simpan data
-Tidak valid? → Return false → Stop, tampilkan error
-```
+**Validasi Khusus Deadline:**
+- Cek apakah field diisi
+- Bandingkan dengan tanggal hari ini
+- Reject jika tanggal sudah lewat
+- Accept jika tanggal hari ini atau masa depan
 
 ---
 
@@ -509,97 +186,54 @@ Tidak valid? → Return false → Stop, tampilkan error
 ```
 aplikasi-manajemen-tugas/
 │
-├── index.html          # Struktur HTML (layout & markup)
-├── style.css           # Styling (desain minimalist)
-└── script.js           # Logika JavaScript (CRUD, validasi, localStorage)
+├── index.html          # Struktur HTML (layout, form, task list)
+├── style.css           # Styling minimalist (monochrome design)
+└── script.js           # Logika aplikasi (CRUD, validasi, localStorage)
 ```
 
-### Detail File:
-
-#### 1. index.html (300 baris)
-- Header dan title aplikasi
-- Dashboard statistik (3 card)
-- Search box dan filter buttons
-- Form input tugas (hidden by default)
-- Container untuk daftar tugas
-- Catatan tentang localStorage
-
-#### 2. style.css (450 baris)
-- Reset CSS dan base styling
-- Responsive grid layout
-- Komponen card, button, form
-- State styling (active, error, completed)
-- Media queries untuk mobile
-- Minimalist color scheme (monochrome)
-
-#### 3. script.js (250 baris)
-- Data storage dengan array
-- CRUD operations (5 functions)
-- Validasi form (3 validators)
-- Filter & search logic
-- Render & update UI
-- localStorage integration
-- Utility functions (format date, check deadline)
+**Teknologi yang Digunakan:**
+- HTML5
+- CSS3 (Responsive Design)
+- JavaScript Vanilla (ES6)
+- localStorage API
 
 ---
 
 ## 🌐 Browser yang Didukung
 
-Aplikasi ini kompatibel dengan browser modern yang mendukung localStorage:
-
-| Browser | Versi Minimum | Status |
-|---------|---------------|--------|
-| Chrome | 4+ | ✅ Fully Supported |
-| Firefox | 3.5+ | ✅ Fully Supported |
-| Safari | 4+ | ✅ Fully Supported |
-| Edge | 12+ | ✅ Fully Supported |
-| Opera | 10.5+ | ✅ Fully Supported |
-
-**Catatan:** Internet Explorer 7 dan di bawahnya tidak didukung karena tidak memiliki localStorage API.
+| Browser | Versi Minimum |
+|---------|---------------|
+| Chrome | 4+ |
+| Firefox | 3.5+ |
+| Safari | 4+ |
+| Edge | 12+ |
+| Opera | 10.5+ |
 
 ---
 
-## ❓ FAQ (Frequently Asked Questions)
+## ❓ FAQ
 
-### Q1: Apakah data saya aman?
-**A:** Data tersimpan di browser Anda sendiri menggunakan localStorage. Data tidak dikirim ke server manapun, jadi privasi terjaga. Namun, data tidak terenkripsi, jadi jangan simpan informasi sensitif.
+**Q: Apakah data aman?**  
+A: Data tersimpan di browser Anda sendiri, tidak dikirim ke server manapun.
 
-### Q2: Apakah data bisa diakses dari komputer/HP lain?
-**A:** Tidak. localStorage hanya tersimpan di browser yang Anda gunakan. Untuk akses dari device lain, Anda perlu sistem sync dengan server (di luar scope aplikasi ini).
+**Q: Apakah bisa diakses dari HP/komputer lain?**  
+A: Tidak. localStorage hanya tersimpan di browser yang digunakan.
 
-### Q3: Bagaimana jika saya clear browser data?
-**A:** Data akan hilang. Untuk backup, Anda bisa:
-1. Buka DevTools (F12) → Application → Local Storage
-2. Copy value dari key "tasks"
-3. Simpan di notepad sebagai backup
-4. Restore dengan paste kembali ke localStorage
+**Q: Bagaimana jika clear browser data?**  
+A: Data akan hilang. Backup dengan copy data dari DevTools > Local Storage.
 
-### Q4: Apakah bisa export data ke Excel/PDF?
-**A:** Fitur ini tidak tersedia di versi saat ini. Namun Anda bisa menambahkan fungsi export dengan library seperti SheetJS (untuk Excel) atau jsPDF (untuk PDF).
+**Q: Apakah perlu internet?**  
+A: Tidak. Aplikasi 100% offline setelah file ada di komputer.
 
-### Q5: Kenapa deadline tidak bisa pilih tanggal yang sudah lewat?
-**A:** Ini adalah validasi untuk mencegah kesalahan input. Deadline seharusnya adalah tanggal di masa depan. Jika Anda perlu mencatat tugas yang sudah lewat deadline, Anda bisa tandai sebagai "selesai" terlebih dahulu.
-
-### Q6: Apakah aplikasi perlu internet?
-**A:** Tidak. Setelah file HTML, CSS, dan JS ada di komputer Anda, aplikasi bisa berjalan 100% offline.
-
-### Q7: Berapa banyak tugas yang bisa disimpan?
-**A:** localStorage memiliki limit sekitar 5-10 MB. Ini cukup untuk menyimpan ribuan tugas. Rata-rata 1 tugas = ~200 bytes, jadi bisa menyimpan 25,000+ tugas.
+**Q: Berapa banyak tugas yang bisa disimpan?**  
+A: Sekitar 25,000+ tugas (limit localStorage 5-10 MB).
 
 ---
 
 ## 📝 Lisensi
 
-Project ini dibuat untuk keperluan tugas praktikum dan pembelajaran. Bebas digunakan dan dimodifikasi sesuai kebutuhan.
+Project ini dibuat untuk keperluan tugas praktikum dan pembelajaran.
 
 ---
 
-## 👨‍💻 Dibuat Oleh
-
-**Tugas Praktikum - Pemrograman Web**
-
-Jika ada pertanyaan atau saran, silakan buat issue di repository ini.
-
----
-
-**Happy Coding! 🚀**
+**Dibuat untuk Tugas Praktikum - Pemrograman Web**
