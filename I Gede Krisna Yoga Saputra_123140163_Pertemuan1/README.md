@@ -53,7 +53,7 @@ Aplikasi ini memungkinkan mahasiswa untuk mencatat, mengatur, dan melacak tugas-
 *Tampilan utama dengan dashboard statistik yang menampilkan total tugas, tugas belum selesai, dan tugas selesai*
 
 ### 2. Form Input Tugas
-![Form](screenshot-form.png)
+![Form](assets/screenshot_20251018_134930.png)
 *Form untuk menambah/edit tugas dengan 3 field: nama tugas, mata kuliah, dan deadline*
 
 ### 3. Daftar Tugas dengan Filter
