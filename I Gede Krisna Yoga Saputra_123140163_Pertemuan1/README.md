@@ -57,7 +57,7 @@ Aplikasi ini memungkinkan mahasiswa untuk mencatat, mengatur, dan melacak tugas-
 *Form untuk menambah/edit tugas dengan 3 field: nama tugas, mata kuliah, dan deadline*
 
 ### 3. Daftar Tugas dengan Filter
-![Task List](screenshot-tasklist.png)
+![Task List](assets/screenshot_20251018_140112.png)
 *Daftar tugas dengan fitur search, filter berdasarkan status, dan action buttons (edit & delete)*
 
 ### 4. Validasi Form
