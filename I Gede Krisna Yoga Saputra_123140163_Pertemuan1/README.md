@@ -61,7 +61,7 @@ Aplikasi ini memungkinkan mahasiswa untuk mencatat, mengatur, dan melacak tugas-
 *Daftar tugas dengan fitur search, filter berdasarkan status, dan action buttons (edit & delete)*
 
 ### 4. Validasi Form
-![Validation](screenshot-validation.png)
+![Validation](assets/screenshot_20251018_135138.png)
 *Error message muncul saat field kosong atau deadline tidak valid*
 
 ### 5. localStorage di DevTools
