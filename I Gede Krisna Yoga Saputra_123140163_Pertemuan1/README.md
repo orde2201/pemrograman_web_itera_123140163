@@ -49,7 +49,7 @@ Aplikasi ini memungkinkan mahasiswa untuk mencatat, mengatur, dan melacak tugas-
 ## 📸 Screenshot Aplikasi
 
 ### 1. Dashboard & Statistik
-![Dashboard](screenshot-dashboard.png)
+![Dashboard](/assets/screenshot_20251018_134452.png)
 *Tampilan utama dengan dashboard statistik yang menampilkan total tugas, tugas belum selesai, dan tugas selesai*
 
 ### 2. Form Input Tugas
