@@ -31,8 +31,9 @@ Semua data tersimpan di **LocalStorage**, sehingga tidak hilang meskipun browser
 
 ## 🖼️ Tampilan Aplikasi
 
-> ![Screenshot Aplikasi](screenshot.png)
-> *(Ganti dengan tangkapan layar dari aplikasi kamu)*
+> ![Screenshot Aplikasi](assets/screenshot_20251024_215520.png)
+> ![Screenshot Aplikasi](assets/screenshot_20251024_215520.png)
+
 
 Desain aplikasi mengusung tema **minimalis dan responsif**, dengan fokus pada kemudahan penggunaan serta keterbacaan data.
 
