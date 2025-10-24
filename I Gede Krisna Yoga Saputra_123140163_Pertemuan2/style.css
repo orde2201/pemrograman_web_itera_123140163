@@ -1,0 +1,204 @@
+/* Menggunakan font dari Google Fonts dan mengatur variabel warna */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --warna-latar: #f7f7f7;
+  --warna-kartu: #ffffff;
+  --warna-teks: #333333;
+  --warna-teks-halus: #777777;
+  --warna-border: #eeeeee;
+  --warna-aksen: #4a90e2;
+  --warna-bahaya: #e57373;
+}
+
+/* Aturan dasar untuk semua elemen dan body */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+}
+
+#container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* Bagian Header */
+header {
+  margin-bottom: 2.5rem;
+}
+
+/* Bagian Tombol Tab */
+#tabs {
+  display: flex;
+  border-bottom: 1px solid var(--warna-border);
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.5rem 0.25rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--warna-teks-halus);
+  border-bottom: 2px solid transparent;
+  margin-right: 1rem;
+}
+
+.tab-button.active {
+  color: var(--warna-teks);
+  border-bottom-color: var(--warna-aksen);
+}
+
+/* Bagian Header di dalam List (Judul dan tombol +) */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.tombol-tambah {
+  background-color: var(--warna-aksen);
+  color: white;
+  border: none;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Setiap item dalam daftar */
+.item {
+  background-color: var(--warna-kartu);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--warna-border);
+}
+
+.item.completed {
+  opacity: 0.6;
+}
+.item.completed .item-title {
+  text-decoration: line-through;
+}
+
+.item-content {
+  flex-grow: 1;
+}
+.item-title {
+  font-weight: 500;
+}
+.item-details {
+  font-size: 0.85rem;
+  color: var(--warna-teks-halus);
+  margin-top: 0.25rem;
+}
+
+/* Tombol aksi (edit, hapus) yang muncul saat hover */
+.item-actions {
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.item:hover .item-actions {
+  opacity: 1;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--warna-teks-halus);
+  padding: 0.25rem;
+}
+.action-button:hover {
+  color: var(--warna-teks);
+}
+.action-button[data-action="delete"]:hover {
+  color: var(--warna-bahaya);
+}
+
+/* Tombol centang (toggle) */
+.toggle-button {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.toggle-button.completed {
+  background-color: var(--warna-aksen);
+  border-color: var(--warna-aksen);
+}
+
+/* Kartu Form */
+.form-card {
+  background-color: var(--warna-kartu);
+  padding: 1.5rem;
+  border: 1px solid var(--warna-border);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: none;
+  font-size: 1rem;
+}
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  outline: none;
+  border-bottom-color: var(--warna-aksen);
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.form-actions button {
+  padding: 0.6rem 1.25rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.form-actions button[type="submit"] {
+  background-color: var(--warna-aksen);
+  color: white;
+}
+.form-actions .tombol-batal {
+  background-color: #f0f0f0;
+  color: var(--warna-teks);
+}

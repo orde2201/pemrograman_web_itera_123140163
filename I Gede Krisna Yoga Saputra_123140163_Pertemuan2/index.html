@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Modern</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>Dashboard Pribadi</h1>
+      </header>
+
+      <nav id="tabs">
+        <button data-tab="tugas" class="tab-button active">Tugas</button>
+        <button data-tab="jadwal" class="tab-button">Jadwal</button>
+      </nav>
+
+      <main id="content">
+        <form id="form-tugas" class="form-card hidden">
+          <h3 id="form-tugas-judul">Tambah Tugas Baru</h3>
+          <input id="input-tugas-id" type="hidden" />
+          <input
+            id="input-tugas-judul"
+            type="text"
+            placeholder="Judul tugas..."
+          />
+          <textarea
+            id="input-tugas-deskripsi"
+            placeholder="Deskripsi singkat..."
+          ></textarea>
+          <input id="input-tugas-deadline" type="date" />
+          <div class="form-actions">
+            <button type="submit">Simpan</button>
+            <button type="button" class="tombol-batal">Batal</button>
+          </div>
+        </form>
+
+        <form id="form-jadwal" class="form-card hidden">
+          <h3 id="form-jadwal-judul">Tambah Jadwal Baru</h3>
+          <input id="input-jadwal-id" type="hidden" />
+          <input
+            id="input-jadwal-matkul"
+            type="text"
+            placeholder="Nama Mata Kuliah"
+          />
+          <input
+            id="input-jadwal-waktu"
+            type="text"
+            placeholder="Waktu (misal: 10:00 - 12:00)"
+          />
+          <input
+            id="input-jadwal-ruang"
+            type="text"
+            placeholder="Ruang Kelas"
+          />
+          <select id="input-jadwal-hari">
+            <option>Senin</option>
+            <option>Selasa</option>
+            <option>Rabu</option>
+            <option>Kamis</option>
+            <option>Jumat</option>
+          </select>
+          <div class="form-actions">
+            <button type="submit">Simpan</button>
+            <button type="button" class="tombol-batal">Batal</button>
+          </div>
+        </form>
+
+        <div id="list-container"></div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
