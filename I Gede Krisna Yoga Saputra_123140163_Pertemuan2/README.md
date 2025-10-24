@@ -76,18 +76,18 @@ formTugas.addEventListener('submit', async (event) => {
   await Penyimpanan.simpanTugas();
 });
 ```
-5. Arrow Functions (=>)
+### ⚡5. Arrow Functions (=>)
 
 Arrow function digunakan di banyak tempat agar kode lebih ringkas dan mudah dibaca. Berikut contohnya:
 
-Listener utama dokumen : 
+- Listener utama dokumen : 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
   // Semua kode aplikasi dijalankan di sini
 });
 ```
 ---
-Listener tombol tab :
+- Listener tombol tab :
 ```js
 semuaTombolTab.forEach(tombol => {
   tombol.addEventListener('click', () => { /* ubah tab aktif */ });
@@ -95,13 +95,13 @@ semuaTombolTab.forEach(tombol => {
 
 ```
 ---
-Callback untuk .map()
+- Callback untuk .map()
 ```js
 const tugasHTML = semuaTugas.map(tugas => `<li>${tugas.nama}</li>`);
 
 ```
 ---
-Callback untuk .find() dan .filter()
+- Callback untuk .find() dan .filter()
 ```js
 semuaTugas.find(t => t.id === id);
 semuaTugas = semuaTugas.filter(t => t.id !== id);
