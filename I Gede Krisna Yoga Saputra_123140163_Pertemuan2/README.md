@@ -66,3 +66,45 @@ const tugasHTML = semuaTugas.map(tugas => `
     <div class="item-desc">${tugas.deskripsi}</div>
   </div>
 `).join('');
+```
+### 🔄 4. Async/Await
+
+Walaupun LocalStorage bersifat sinkron, async/await digunakan untuk mensimulasikan operasi asynchronous, seperti seolah-olah mengambil data dari server:
+```js
+formTugas.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  await Penyimpanan.simpanTugas();
+});
+```
+5. Arrow Functions (=>)
+
+Arrow function digunakan di banyak tempat agar kode lebih ringkas dan mudah dibaca. Berikut contohnya:
+
+Listener utama dokumen : 
+```js
+document.addEventListener('DOMContentLoaded', () => {
+  // Semua kode aplikasi dijalankan di sini
+});
+```
+---
+Listener tombol tab :
+```js
+semuaTombolTab.forEach(tombol => {
+  tombol.addEventListener('click', () => { /* ubah tab aktif */ });
+});
+
+```
+---
+Callback untuk .map()
+```js
+const tugasHTML = semuaTugas.map(tugas => `<li>${tugas.nama}</li>`);
+
+```
+---
+Callback untuk .find() dan .filter()
+```js
+semuaTugas.find(t => t.id === id);
+semuaTugas = semuaTugas.filter(t => t.id !== id);
+
+```
+---
