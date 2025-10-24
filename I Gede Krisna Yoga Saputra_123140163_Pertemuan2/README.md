@@ -1,95 +1,68 @@
-Personal Dashboard Sederhana
+# 🧭 Personal Dashboard Sederhana
 
-Sebuah aplikasi web front-end sederhana yang berfungsi sebagai dasbor pribadi untuk mengelola daftar tugas (to-do list) dan jadwal kuliah. Aplikasi ini dibuat murni menggunakan HTML, CSS, dan JavaScript modern (ES6+) tanpa framework atau library eksternal.
+**Personal Dashboard** adalah aplikasi web sederhana yang berfungsi sebagai papan tulis digital untuk mengelola **daftar tugas harian (to-do list)** dan **jadwal kuliah**.  
+Aplikasi ini dibangun sepenuhnya menggunakan **HTML, CSS, dan JavaScript (ES6+)** tanpa framework atau library eksternal, dan semua data disimpan secara **lokal di browser** menggunakan `LocalStorage`.
 
-Seluruh data disimpan secara lokal di browser pengguna menggunakan LocalStorage, sehingga data tidak akan hilang saat halaman dimuat ulang.
+---
 
-Tampilan Aplikasi
+## 🧩 Penjelasan Aplikasi & Fitur
 
-Berikut adalah tangkapan layar (screenshot) dari aplikasi yang sudah jadi:
+Aplikasi ini dirancang untuk membantu pengguna mengatur aktivitas harian dengan cepat dan efisien langsung dari browser.
 
-Fitur Utama 🚀
+### 🎯 Fitur Utama
 
-    Manajemen Tugas:
+#### ✅ Manajemen Tugas
+- Menambah tugas baru dengan **judul**, **deskripsi**, dan **tanggal deadline**  
+- Mengedit tugas yang sudah ada  
+- Menandai tugas sebagai **selesai**  
+- Menghapus tugas  
 
-        Menambah tugas baru dengan judul, deskripsi, dan tanggal deadline.
+#### 📚 Manajemen Jadwal
+- Menambah jadwal kuliah atau kegiatan baru dengan **nama mata kuliah**, **hari**, **waktu**, dan **ruang**  
+- Mengedit atau menghapus jadwal yang sudah terdaftar  
 
-        Menandai tugas sebagai "selesai".
+#### 🧭 Navigasi Tab
+Antarmuka sederhana dengan dua tab: **Tugas** dan **Jadwal**, untuk memudahkan navigasi antar fitur.
 
-        Mengedit detail tugas yang sudah ada.
+#### 💾 Penyimpanan Lokal
+Semua data tersimpan di **LocalStorage**, sehingga tidak hilang meskipun browser ditutup atau halaman direfresh.
 
-        Menghapus tugas.
+---
 
-    Manajemen Jadwal:
+## 🖼️ Tampilan Aplikasi
 
-        Menambah jadwal kuliah baru dengan nama mata kuliah, hari, waktu, dan ruang.
+> ![Screenshot Aplikasi](screenshot.png)
+> *(Ganti dengan tangkapan layar dari aplikasi kamu)*
 
-        Mengedit detail jadwal.
+Desain aplikasi mengusung tema **minimalis dan responsif**, dengan fokus pada kemudahan penggunaan serta keterbacaan data.
 
-        Menghapus jadwal.
+---
 
-    Navigasi Tab: Antarmuka dengan dua tab untuk beralih antara tampilan Tugas dan Jadwal dengan mudah.
+## ⚙️ Implementasi Fitur ES6+
 
-    Penyimpanan Lokal: Semua data tugas dan jadwal akan tetap tersimpan di browser, bahkan setelah browser ditutup.
+Aplikasi ini sepenuhnya menggunakan fitur modern dari **JavaScript ES6+** untuk menjaga kode tetap bersih, ringkas, dan efisien.
 
-    Desain Minimalis: Tampilan yang bersih dan sederhana agar fokus pada fungsionalitas.
+### 🧱 1. `let` dan `const`
+- `const` digunakan untuk variabel yang **tidak berubah**, seperti referensi elemen DOM dan objek penyimpanan.
+- `let` digunakan untuk variabel yang **dinamis**, seperti daftar tugas (`semuaTugas`) dan tab yang sedang aktif (`tabAktif`).
 
-Implementasi Fitur JavaScript (ES6+) 🤓
+---
 
-Aplikasi ini dibangun dengan memanfaatkan fitur-fitur modern dari JavaScript (ES6 dan versi setelahnya) untuk membuat kode yang lebih bersih, efisien, dan mudah dibaca. Berikut adalah daftar fitur yang diimplementasikan:
+### 🧩 2. `class`
+Struktur kode dibangun dengan class agar data lebih terorganisir:
+- `class Tugas` → merepresentasikan satu item tugas.  
+- `class Jadwal` → merepresentasikan satu item jadwal.  
+- `class Penyimpanan` → menangani proses simpan dan ambil data dari `LocalStorage`.
 
-    let dan const
+---
 
-        const digunakan untuk mendeklarasikan variabel yang nilainya tidak akan diubah lagi, seperti elemen-elemen HTML yang diambil dari DOM dan object Penyimpanan.
+### 🧾 3. Template Literals (`` ` ``)
+Digunakan untuk membuat string HTML secara dinamis di fungsi `renderTugas()` dan `renderJadwal()`:
 
-        let digunakan untuk variabel yang nilainya dapat berubah seiring berjalannya aplikasi, seperti semuaTugas, tabAktif, dan idYangDiedit.
-
-    Arrow Functions (=>)
-
-        Digunakan secara ekstensif untuk menulis fungsi callback pada event listener agar lebih ringkas. Contohnya pada forEach untuk tombol tab dan pada event listener untuk form submit.
-    JavaScript
-
-semuaTombolTab.forEach(tombol => {
-    tombol.addEventListener('click', () => {
-        // ... logika
-    });
-});
-
-Template Literals (String `)
-
-    Digunakan untuk membuat blok HTML secara dinamis pada fungsi renderTugas() dan renderJadwal(). Fitur ini memungkinkan penyisipan variabel dan logika sederhana langsung di dalam string, membuat proses rendering menjadi jauh lebih bersih daripada metode penggabungan string manual (+).
-
-JavaScript
-
+```js
 const tugasHTML = semuaTugas.map(tugas => `
-    <div class="item ${tugas.selesai ? 'completed' : ''}" data-id="${tugas.id}">
-        <div class="item-title">${tugas.judul}</div>
-    </div>
+  <div class="item ${tugas.selesai ? 'completed' : ''}" data-id="${tugas.id}">
+    <div class="item-title">${tugas.judul}</div>
+    <div class="item-desc">${tugas.deskripsi}</div>
+  </div>
 `).join('');
-
-Classes
-
-    Aplikasi ini menggunakan class untuk membuat blueprint atau cetakan bagi object data, sehingga struktur data menjadi lebih terorganisir dan konsisten.
-
-        class Tugas: Mendefinisikan struktur untuk setiap item tugas.
-
-        class Jadwal: Mendefinisikan struktur untuk setiap item jadwal.
-
-        class Penyimpanan: Mengelola semua logika yang berhubungan dengan LocalStorage (menyimpan dan mengambil data).
-
-Async/Await
-
-    Digunakan pada class Penyimpanan dan pada fungsi-fungsi yang berinteraksi dengannya. Meskipun LocalStorage bersifat sinkron, async/await digunakan untuk mensimulasikan bagaimana data akan diambil jika berasal dari sumber eksternal (seperti API), dan ini adalah praktik terbaik (best practice) dalam pengembangan aplikasi modern.
-
-JavaScript
-
-    const init = async () => {
-        // 'await' membuat kode menunggu sampai data selesai diambil
-        semuaTugas = await penyimpananTugas.ambil();
-        semuaJadwal = await penyimpananJadwal.ambil();
-        render();
-    };
-
-Cara Menjalankan
-
-Tidak ada proses instalasi yang rumit. Cukup buka file index.html langsung di browser web modern pilihan Anda (seperti Google Chrome, Firefox, atau Edge).
