@@ -1,3 +1,8 @@
+Nama : I Gede Krisna Yoga Saputra
+Nim : 123140163
+kelas : RB
+
+
 # 📚 Aplikasi Manajemen Buku Pribadi
 
 Aplikasi ini dibuat menggunakan **ReactJS** untuk membantu pengguna mengelola daftar buku pribadi.  
