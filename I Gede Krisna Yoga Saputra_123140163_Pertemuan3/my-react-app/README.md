@@ -84,3 +84,6 @@ Jest (sudah termasuk dalam Create React App)
 ```bash
 npm test
 ```
+
+### Hasil
+
