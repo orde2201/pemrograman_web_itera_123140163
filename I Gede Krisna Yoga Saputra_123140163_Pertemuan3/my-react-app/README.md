@@ -86,4 +86,4 @@ npm test
 ```
 
 ### Hasil
-![Alt text](images/example.png)
+![Alt text](I Gede Krisna Yoga Saputra_123140163_Pertemuan3/my-react-app/public/screenshot_20251101_083737.png)
