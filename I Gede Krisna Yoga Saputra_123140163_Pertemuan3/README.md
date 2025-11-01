@@ -8,7 +8,7 @@ Aplikasi ini menyimpan data secara lokal menggunakan **localStorage** sehingga t
 
 ##🖼️ Tampilan Antarmuka
 ![Alt text](my-react-app/public/screenshot_20251101_083751.png)
-![Alt text](my-react-app/public/screenshot_20251101_083737.png)
+![Alt text](my-react-app/public/screenshot_20251101_083800.png)
 
 ## 🚀 Fitur Utama
 
