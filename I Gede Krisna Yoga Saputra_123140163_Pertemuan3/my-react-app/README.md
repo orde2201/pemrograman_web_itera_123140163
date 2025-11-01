@@ -86,4 +86,4 @@ npm test
 ```
 
 ### Hasil
-
+![Alt text](images/example.png)
