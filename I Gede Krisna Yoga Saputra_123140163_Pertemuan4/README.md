@@ -39,11 +39,11 @@ Breakdown berdasarkan tipe (buku/majalah)
 Dashboard statistik real-time
 
 ## tampilan
-Tampilan awal
+# Tampilan awal
 ![tampilan awal](./assets/Image1.png)
-Menambahkan buku
+# Menambahkan buku
 ![tampilan tambah buku](./assets/Image2.png)
-Searching buku
+# Searching buku
 ![tampilan tampilkan semua buku](./assets/Image3.png)
-List semua buku
+# List semua buku
 ![tampilan tampilkan semua buku](./assets/Image4.png)
