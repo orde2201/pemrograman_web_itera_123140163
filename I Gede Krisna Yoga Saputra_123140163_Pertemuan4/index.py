@@ -390,7 +390,7 @@ def main():
     init_sample_data(library)
     
     print_header("SISTEM MANAJEMEN PERPUSTAKAAN")
-    print("\n✅ Data contoh berhasil dimuat (3 buku)")
+    
     
     while True:
         print("\n" + "="*60)
