@@ -11,39 +11,27 @@ Polymorphism - Method yang sama dengan implementasi berbeda
 
 ## ✨ Fitur Utama
 
-1. 📖 Manajemen Koleksi
+#### 1. 📖 Manajemen Koleksi
 
 Tambah Buku Baru - Input interaktif untuk menambahkan buku dengan validasi lengkap
-Tambah Majalah Baru - Input interaktif untuk menambahkan majalah
 Validasi Data - Memastikan ID unik, format data benar, dan tidak ada duplikasi
 
-2. 🔍 Sistem Pencarian Advanced
+#### 2. 🔍 Sistem Pencarian 
 
 Pencarian berdasarkan ID - Cari item spesifik dengan ID unik
 Pencarian berdasarkan Judul - Mendukung partial match (case-insensitive)
-Pencarian berdasarkan Penulis - Khusus untuk koleksi buku
-Filter berdasarkan Tipe - Tampilkan hanya buku atau majalah
-Filter Ketersediaan - Tampilkan item yang tersedia untuk dipinjam
 
-3. 📤 Manajemen Peminjaman
-
-Pinjam Item - Sistem peminjaman dengan validasi ketersediaan
-Kembalikan Item - Proses pengembalian item yang dipinjam
-Status Tracking - Monitoring status setiap item (tersedia/dipinjam)
-
-4. 📊 Statistik & Reporting
+#### 4. 📊 List Buku
 
 Total koleksi perpustakaan
 Jumlah item tersedia dan dipinjam
-Breakdown berdasarkan tipe (buku/majalah)
-Dashboard statistik real-time
 
 ## tampilan
-# Tampilan awal
+#### Tampilan awal
 ![tampilan awal](./assets/Image1.png)
-# Menambahkan buku
+#### Menambahkan buku
 ![tampilan tambah buku](./assets/Image2.png)
-# Searching buku
+#### Searching buku
 ![tampilan tampilkan semua buku](./assets/Image3.png)
-# List semua buku
+#### List semua buku
 ![tampilan tampilkan semua buku](./assets/Image4.png)
