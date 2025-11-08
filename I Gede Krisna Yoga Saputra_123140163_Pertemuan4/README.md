@@ -1,5 +1,5 @@
 ## 📚 Sistem Manajemen Perpustakaan
-Sistem manajemen perpustakaan sederhana berbasis Python yang menerapkan konsep Object-Oriented Programming (OOP) secara lengkap.
+  Sistem manajemen perpustakaan sederhana berbasis Python yang menerapkan konsep Object-Oriented Programming (OOP) secara lengkap.
 ###📋 Deskripsi Program
 Program ini adalah aplikasi console interaktif untuk mengelola koleksi perpustakaan yang mencakup buku dan majalah. Sistem ini dibangun dengan fokus pada penerapan prinsip-prinsip OOP seperti:
 
