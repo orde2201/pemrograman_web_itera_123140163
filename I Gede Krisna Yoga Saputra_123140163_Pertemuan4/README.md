@@ -46,9 +46,17 @@ Nilai E < 50
 ## tampilan
 #### Tampilan awal
 ![tampilan awal](./assets/Image1.png)
-#### Menambahkan buku
-![tampilan tambah buku](./assets/Image2.png)
-#### Searching buku
-![tampilan tampilkan semua buku](./assets/Image3.png)
-#### List semua buku
-![tampilan tampilkan semua buku](./assets/Image4.png)
+#### Tampilan list seluruh Mahasiswa
+![tampilan list](./assets/Image2.png)
+#### Tampilan menambahkan data nilai mahasiswa
+![Tampilan menambahkan mahasiswa](./assets/Image3.png)
+#### Tampilan list mahasiswa dengan nilai tertinggi
+![tampilan mahasiswa dengan nilai tertinggi](./assets/Image4.png)
+#### Tampilan list mahasiswa dengan nilai terendah
+![tampilan mahasiswa dengan nilai terendah](./assets/Image5.png)
+#### Tampilan filter berdasarkan grade
+![tampilan filter berdasarkan grade](./assets/Image6.png)
+#### Tampilan nilai rata rata mahasiswa
+![tampilan nilai rata rata](./assets/Image7.png)
+#### Tampilan statistik kelas
+![tampilan statistik](./assets/Image8.png)
