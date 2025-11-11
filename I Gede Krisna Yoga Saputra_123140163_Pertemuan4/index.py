@@ -1,425 +1,357 @@
-from abc import ABC, abstractmethod
-from typing import List, Optional
+"""
+Program Pengelolaan Data Nilai Mahasiswa
+Dibuat untuk memenuhi tugas praktikum
+"""
+
+# Data mahasiswa awal
+data_mahasiswa = [
+    {
+        "nama": "Budi Santoso",
+        "nim": "2024001",
+        "nilai_uts": 85,
+        "nilai_uas": 90,
+        "nilai_tugas": 88
+    },
+    {
+        "nama": "Siti Nurhaliza",
+        "nim": "2024002",
+        "nilai_uts": 78,
+        "nilai_uas": 82,
+        "nilai_tugas": 80
+    },
+    {
+        "nama": "Ahmad Dahlan",
+        "nim": "2024003",
+        "nilai_uts": 65,
+        "nilai_uas": 70,
+        "nilai_tugas": 68
+    },
+    {
+        "nama": "Rina Wijaya",
+        "nim": "2024004",
+        "nilai_uts": 92,
+        "nilai_uas": 95,
+        "nilai_tugas": 93
+    },
+    {
+        "nama": "Doni Prasetyo",
+        "nim": "2024005",
+        "nilai_uts": 55,
+        "nilai_uas": 60,
+        "nilai_tugas": 58
+    }
+]
 
 
-class LibraryItem(ABC):
+def hitung_nilai_akhir(nilai_uts, nilai_uas, nilai_tugas):
     """
-    Abstract base class untuk semua item perpustakaan.
-    Menerapkan konsep abstraction dan menjadi blueprint untuk item-item spesifik.
+    Menghitung nilai akhir berdasarkan bobot:
+    - UTS: 30%
+    - UAS: 40%
+    - Tugas: 30%
+    
+    Args:
+        nilai_uts (float): Nilai UTS
+        nilai_uas (float): Nilai UAS
+        nilai_tugas (float): Nilai Tugas
+    
+    Returns:
+        float: Nilai akhir
     """
-    
-    def __init__(self, item_id: str, title: str, year: int):
-        """
-        Constructor untuk LibraryItem.
-        
-        Args:
-            item_id: ID unik untuk item
-            title: Judul item
-            year: Tahun publikasi
-        """
-        self.__item_id = item_id  # Private attribute (encapsulation)
-        self._title = title  # Protected attribute
-        self._year = year
-    
-    @property
-    def item_id(self) -> str:
-        """Property untuk mengakses item_id (read-only)"""
-        return self.__item_id
-    
-    @property
-    def title(self) -> str:
-        """Property untuk mengakses title"""
-        return self._title
-    
-    @title.setter
-    def title(self, value: str):
-        """Setter untuk title dengan validasi"""
-        if not value or not value.strip():
-            raise ValueError("Judul tidak boleh kosong")
-        self._title = value.strip()
-    
-    @abstractmethod
-    def get_info(self) -> str:
-        """
-        Abstract method yang harus diimplementasikan oleh subclass.
-        Mengembalikan informasi detail tentang item.
-        """
-        pass
-    
-    @abstractmethod
-    def get_type(self) -> str:
-        """
-        Abstract method untuk mendapatkan tipe item.
-        """
-        pass
-    
-    def __str__(self) -> str:
-        """String representation untuk item"""
-        return f"[{self.item_id}] {self.title} ({self._year})"
+    nilai_akhir = (nilai_uts * 0.3) + (nilai_uas * 0.4) + (nilai_tugas * 0.3)
+    return round(nilai_akhir, 2)
 
 
-class Book(LibraryItem):
+def tentukan_grade(nilai_akhir):
     """
-    Class untuk item buku, mewarisi dari LibraryItem.
-    Implementasi konkrit dari abstract class.
+    Menentukan grade berdasarkan nilai akhir
+    
+    Args:
+        nilai_akhir (float): Nilai akhir mahasiswa
+    
+    Returns:
+        str: Grade (A, B, C, D, atau E)
     """
-    
-    def __init__(self, item_id: str, title: str, year: int, author: str, pages: int):
-        """
-        Constructor untuk Book.
-        
-        Args:
-            item_id: ID unik buku
-            title: Judul buku
-            year: Tahun terbit
-            author: Nama penulis
-            pages: Jumlah halaman
-        """
-        super().__init__(item_id, title, year)
-        self._author = author
-        self._pages = pages
-    
-    @property
-    def author(self) -> str:
-        """Property untuk mengakses author"""
-        return self._author
-    
-    def get_info(self) -> str:
-        """
-        Implementasi method abstract dari parent class.
-        Mengembalikan informasi lengkap tentang buku.
-        """
-        return (f"📚 BUKU\n"
-                f"   ID      : {self.item_id}\n"
-                f"   Judul   : {self.title}\n"
-                f"   Penulis : {self._author}\n"
-                f"   Tahun   : {self._year}\n"
-                f"   Halaman : {self._pages}")
-    
-    def get_type(self) -> str:
-        """Implementasi method abstract untuk tipe item"""
-        return "Buku"
+    if nilai_akhir >= 80:
+        return "A"
+    elif nilai_akhir >= 70:
+        return "B"
+    elif nilai_akhir >= 60:
+        return "C"
+    elif nilai_akhir >= 50:
+        return "D"
+    else:
+        return "E"
 
 
-class Magazine(LibraryItem):
+def tampilkan_data(data):
     """
-    Class untuk item majalah, mewarisi dari LibraryItem.
-    Implementasi konkrit dari abstract class.
-    """
+    Menampilkan data mahasiswa dalam format tabel
     
-    def __init__(self, item_id: str, title: str, year: int, publisher: str, issue: int):
-        """
-        Constructor untuk Magazine.
+    Args:
+        data (list): List berisi dictionary data mahasiswa
+    """
+    if not data:
+        print("\nTidak ada data untuk ditampilkan.")
+        return
+    
+    print("\n" + "="*110)
+    print(f"{'No':<4} {'Nama':<20} {'NIM':<10} {'UTS':<6} {'UAS':<6} {'Tugas':<6} {'Nilai Akhir':<12} {'Grade':<6}")
+    print("="*110)
+    
+    for i, mhs in enumerate(data, 1):
+        nilai_akhir = hitung_nilai_akhir(
+            mhs["nilai_uts"], 
+            mhs["nilai_uas"], 
+            mhs["nilai_tugas"]
+        )
+        grade = tentukan_grade(nilai_akhir)
         
-        Args:
-            item_id: ID unik majalah
-            title: Judul majalah
-            year: Tahun terbit
-            publisher: Nama penerbit
-            issue: Nomor edisi
-        """
-        super().__init__(item_id, title, year)
-        self._publisher = publisher
-        self._issue = issue
+        print(f"{i:<4} {mhs['nama']:<20} {mhs['nim']:<10} {mhs['nilai_uts']:<6} "
+              f"{mhs['nilai_uas']:<6} {mhs['nilai_tugas']:<6} {nilai_akhir:<12.2f} {grade:<6}")
     
-    @property
-    def publisher(self) -> str:
-        """Property untuk mengakses publisher"""
-        return self._publisher
-    
-    def get_info(self) -> str:
-        """
-        Implementasi method abstract dari parent class.
-        Mengembalikan informasi lengkap tentang majalah.
-        """
-        return (f"📰 MAJALAH\n"
-                f"   ID       : {self.item_id}\n"
-                f"   Judul    : {self.title}\n"
-                f"   Penerbit : {self._publisher}\n"
-                f"   Tahun    : {self._year}\n"
-                f"   Edisi    : #{self._issue}")
-    
-    def get_type(self) -> str:
-        """Implementasi method abstract untuk tipe item"""
-        return "Majalah"
+    print("="*110)
 
 
-class Library:
+def cari_mahasiswa_tertinggi(data):
     """
-    Class untuk mengelola koleksi perpustakaan.
-    Menerapkan encapsulation dan composition.
+    Mencari mahasiswa dengan nilai akhir tertinggi
+    
+    Args:
+        data (list): List berisi dictionary data mahasiswa
+    
+    Returns:
+        dict: Data mahasiswa dengan nilai tertinggi
     """
-    
-    def __init__(self, name: str):
-        """
-        Constructor untuk Library.
-        
-        Args:
-            name: Nama perpustakaan
-        """
-        self.__name = name  # Private attribute
-        self.__items: List[LibraryItem] = []  # Private collection
-    
-    @property
-    def name(self) -> str:
-        """Property untuk nama perpustakaan (read-only)"""
-        return self.__name
-    
-    def add_item(self, item: LibraryItem) -> bool:
-        """
-        Menambahkan item ke perpustakaan.
-        
-        Args:
-            item: LibraryItem yang akan ditambahkan
-            
-        Returns:
-            True jika berhasil, False jika ID sudah ada
-        """
-        # Validasi ID unik
-        if any(i.item_id == item.item_id for i in self.__items):
-            return False
-        
-        self.__items.append(item)
-        return True
-    
-    def get_all_items(self) -> List[LibraryItem]:
-        """
-        Mendapatkan semua item di perpustakaan.
-        
-        Returns:
-            List dari semua LibraryItem
-        """
-        return self.__items.copy()  # Return copy untuk encapsulation
-    
-    def find_by_id(self, item_id: str) -> Optional[LibraryItem]:
-        """
-        Mencari item berdasarkan ID.
-        
-        Args:
-            item_id: ID item yang dicari
-            
-        Returns:
-            LibraryItem jika ditemukan, None jika tidak
-        """
-        for item in self.__items:
-            if item.item_id == item_id:
-                return item
+    if not data:
         return None
     
-    def find_by_title(self, title: str) -> List[LibraryItem]:
-        """
-        Mencari item berdasarkan judul (case-insensitive, partial match).
-        
-        Args:
-            title: Judul atau bagian judul yang dicari
-            
-        Returns:
-            List dari LibraryItem yang cocok
-        """
-        title_lower = title.lower()
-        return [item for item in self.__items 
-                if title_lower in item.title.lower()]
+    mhs_tertinggi = data[0]
+    nilai_tertinggi = hitung_nilai_akhir(
+        mhs_tertinggi["nilai_uts"],
+        mhs_tertinggi["nilai_uas"],
+        mhs_tertinggi["nilai_tugas"]
+    )
     
-    def display_items(self, items: Optional[List[LibraryItem]] = None):
-        """
-        Menampilkan daftar item dengan format yang rapi.
-        Menerapkan polymorphism - memanggil method get_type() yang berbeda untuk setiap subclass.
-        
-        Args:
-            items: List item yang akan ditampilkan, jika None akan tampilkan semua
-        """
-        items_to_display = items if items is not None else self.__items
-        
-        if not items_to_display:
-            print("📭 Tidak ada buku yang ditemukan.")
-            return
-        
-        print(f"\n{'='*60}")
-        print(f"{'DAFTAR BUKU PERPUSTAKAAN':^60}")
-        print(f"{'='*60}")
-        
-        for item in items_to_display:
-            # Polymorphism: Memanggil method yang sama tapi implementasi berbeda
-            print(f"\n{item}")
-        
-        print(f"\n{'='*60}")
-        print(f"Total: {len(items_to_display)} buku\n")
+    for mhs in data[1:]:
+        nilai_akhir = hitung_nilai_akhir(
+            mhs["nilai_uts"],
+            mhs["nilai_uas"],
+            mhs["nilai_tugas"]
+        )
+        if nilai_akhir > nilai_tertinggi:
+            nilai_tertinggi = nilai_akhir
+            mhs_tertinggi = mhs
+    
+    return mhs_tertinggi, nilai_tertinggi
 
 
-def print_header(title: str):
-    """Menampilkan header dengan format yang rapi"""
-    print("\n" + "="*60)
-    print(title.center(60))
-    print("="*60)
-
-
-def add_book_interactive(library: Library):
+def cari_mahasiswa_terendah(data):
     """
-    Menambahkan buku secara interaktif dengan input user.
+    Mencari mahasiswa dengan nilai akhir terendah
+    
+    Args:
+        data (list): List berisi dictionary data mahasiswa
+    
+    Returns:
+        dict: Data mahasiswa dengan nilai terendah
     """
-    print_header("TAMBAH BUKU BARU")
+    if not data:
+        return None
+    
+    mhs_terendah = data[0]
+    nilai_terendah = hitung_nilai_akhir(
+        mhs_terendah["nilai_uts"],
+        mhs_terendah["nilai_uas"],
+        mhs_terendah["nilai_tugas"]
+    )
+    
+    for mhs in data[1:]:
+        nilai_akhir = hitung_nilai_akhir(
+            mhs["nilai_uts"],
+            mhs["nilai_uas"],
+            mhs["nilai_tugas"]
+        )
+        if nilai_akhir < nilai_terendah:
+            nilai_terendah = nilai_akhir
+            mhs_terendah = mhs
+    
+    return mhs_terendah, nilai_terendah
+
+
+def input_mahasiswa_baru(data):
+    """
+    Menambahkan data mahasiswa baru
+    
+    Args:
+        data (list): List berisi dictionary data mahasiswa
+    """
+    print("\n=== Input Data Mahasiswa Baru ===")
     
     try:
-        item_id = input("\n📌 ID Buku (contoh: B001): ").strip()
-        if not item_id:
-            print("❌ ID tidak boleh kosong!")
+        nama = input("Nama: ").strip()
+        nim = input("NIM: ").strip()
+        nilai_uts = float(input("Nilai UTS (0-100): "))
+        nilai_uas = float(input("Nilai UAS (0-100): "))
+        nilai_tugas = float(input("Nilai Tugas (0-100): "))
+        
+        # Validasi nilai
+        if not (0 <= nilai_uts <= 100 and 0 <= nilai_uas <= 100 and 0 <= nilai_tugas <= 100):
+            print("Error: Nilai harus antara 0-100!")
             return
         
-        # Cek apakah ID sudah ada
-        if library.find_by_id(item_id):
-            print(f"❌ ID '{item_id}' sudah digunakan!")
-            return
+        mahasiswa_baru = {
+            "nama": nama,
+            "nim": nim,
+            "nilai_uts": nilai_uts,
+            "nilai_uas": nilai_uas,
+            "nilai_tugas": nilai_tugas
+        }
         
-        title = input("📖 Judul Buku: ").strip()
-        if not title:
-            print("❌ Judul tidak boleh kosong!")
-            return
+        data.append(mahasiswa_baru)
+        print(f"\nData mahasiswa {nama} berhasil ditambahkan!")
         
-        author = input("✍️  Penulis: ").strip()
-        if not author:
-            print("❌ Penulis tidak boleh kosong!")
-            return
-        
-        year_str = input("📅 Tahun Terbit: ").strip()
-        try:
-            year = int(year_str)
-            if year < 1000 or year > 2100:
-                print("❌ Tahun tidak valid!")
-                return
-        except ValueError:
-            print("❌ Tahun harus berupa angka!")
-            return
-        
-        pages_str = input("📄 Jumlah Halaman: ").strip()
-        try:
-            pages = int(pages_str)
-            if pages <= 0:
-                print("❌ Jumlah halaman harus lebih dari 0!")
-                return
-        except ValueError:
-            print("❌ Jumlah halaman harus berupa angka!")
-            return
-        
-        # Buat object buku baru
-        new_book = Book(item_id, title, year, author, pages)
-        
-        # Tambahkan ke perpustakaan
-        if library.add_item(new_book):
-            print("\n✅ Buku berhasil ditambahkan!")
-            print("\n" + new_book.get_info())
-        else:
-            print("❌ Gagal menambahkan buku!")
-    
-    except Exception as e:
-        print(f"❌ Terjadi kesalahan: {str(e)}")
+    except ValueError:
+        print("Error: Input nilai tidak valid!")
 
 
-def search_book(library: Library):
+def filter_by_grade(data, grade):
     """
-    Mencari buku dengan berbagai metode pencarian.
+    Filter mahasiswa berdasarkan grade tertentu
+    
+    Args:
+        data (list): List berisi dictionary data mahasiswa
+        grade (str): Grade yang dicari (A, B, C, D, E)
+    
+    Returns:
+        list: List mahasiswa dengan grade yang sesuai
     """
-    print_header("CARI BUKU")
-    print("\n1. Cari berdasarkan ID")
-    print("2. Cari berdasarkan Judul")
-    print("0. Kembali")
+    hasil_filter = []
     
-    choice = input("\n▶ Pilih metode pencarian: ").strip()
+    for mhs in data:
+        nilai_akhir = hitung_nilai_akhir(
+            mhs["nilai_uts"],
+            mhs["nilai_uas"],
+            mhs["nilai_tugas"]
+        )
+        if tentukan_grade(nilai_akhir) == grade.upper():
+            hasil_filter.append(mhs)
     
-    if choice == "1":
-        # Cari berdasarkan ID
-        print("\n" + "-"*60)
-        item_id = input("🔍 Masukkan ID buku: ").strip()
-        found = library.find_by_id(item_id)
-        if found:
-            print("\n✅ Buku ditemukan!")
-            print("\n" + found.get_info())
-        else:
-            print(f"\n❌ Buku dengan ID '{item_id}' tidak ditemukan!")
-    
-    elif choice == "2":
-        # Cari berdasarkan judul
-        print("\n" + "-"*60)
-        title = input("🔍 Masukkan judul (atau sebagian): ").strip()
-        results = library.find_by_title(title)
-        if results:
-            print(f"\n✅ Ditemukan {len(results)} buku:")
-            library.display_items(results)
-        else:
-            print(f"\n❌ Tidak ada buku dengan judul '{title}'!")
-    
-    elif choice == "0":
-        return
-    else:
-        print("\n❌ Pilihan tidak valid!")
+    return hasil_filter
 
 
-def display_all_books(library: Library):
+def hitung_rata_rata_kelas(data):
     """
-    Menampilkan semua buku yang ada di perpustakaan.
-    """
-    print_header("DAFTAR SEMUA BUKU")
-    all_items = library.get_all_items()
+    Menghitung rata-rata nilai akhir seluruh mahasiswa
     
-    if all_items:
-        library.display_items()
-    else:
-        print("\n📭 Perpustakaan masih kosong!")
-        print("Silakan tambahkan buku terlebih dahulu.\n")
+    Args:
+        data (list): List berisi dictionary data mahasiswa
+    
+    Returns:
+        float: Rata-rata nilai kelas
+    """
+    if not data:
+        return 0
+    
+    total_nilai = 0
+    for mhs in data:
+        nilai_akhir = hitung_nilai_akhir(
+            mhs["nilai_uts"],
+            mhs["nilai_uas"],
+            mhs["nilai_tugas"]
+        )
+        total_nilai += nilai_akhir
+    
+    return round(total_nilai / len(data), 2)
 
 
-def init_sample_data(library: Library):
+def menu_utama():
     """
-    Menginisialisasi data contoh untuk perpustakaan.
+    Menampilkan menu utama program
     """
-    book1 = Book("B001", "Laskar Pelangi", 2005, "Andrea Hirata", 529)
-    book2 = Book("B002", "Bumi Manusia", 1980, "Pramoedya Ananta Toer", 535)
-    book3 = Book("B003", "Cantik Itu Luka", 2002, "Eka Kurniawan", 520)
-    
-    library.add_item(book1)
-    library.add_item(book2)
-    library.add_item(book3)
-
-
-def main():
-    """
-    Fungsi utama - Menu interaktif sistem perpustakaan.
-    """
-    library = Library("Perpustakaan Kota")
-    
-    # Inisialisasi dengan data contoh
-    init_sample_data(library)
-    
-    print_header("SISTEM MANAJEMEN PERPUSTAKAAN")
-    
-    
     while True:
-        print("\n" + "="*60)
-        print("📚 MENU UTAMA".center(60))
-        print("="*60)
-        print("\n1. Tambah Buku")
-        print("2. Cari Buku")
-        print("3. Tampilkan Semua Buku")
+        print("\n" + "="*50)
+        print("PROGRAM PENGELOLAAN DATA NILAI MAHASISWA")
+        print("="*50)
+        print("1. Tampilkan Semua Data Mahasiswa")
+        print("2. Tambah Data Mahasiswa Baru")
+        print("3. Cari Mahasiswa Nilai Tertinggi")
+        print("4. Cari Mahasiswa Nilai Terendah")
+        print("5. Filter Mahasiswa Berdasarkan Grade")
+        print("6. Tampilkan Rata-rata Nilai Kelas")
+        print("7. Statistik Kelas")
         print("0. Keluar")
-        print("-" * 60)
+        print("="*50)
         
-        choice = input("\n▶ Pilih menu: ").strip()
+        pilihan = input("Pilih menu (0-7): ").strip()
         
-        if choice == "1":
-            add_book_interactive(library)
-        elif choice == "2":
-            search_book(library)
-        elif choice == "3":
-            display_all_books(library)
-        elif choice == "0":
-            print_header("TERIMA KASIH")
-            print("\n👋 Terima kasih telah menggunakan sistem perpustakaan!")
-            print("="*60 + "\n")
+        if pilihan == "1":
+            tampilkan_data(data_mahasiswa)
+        
+        elif pilihan == "2":
+            input_mahasiswa_baru(data_mahasiswa)
+        
+        elif pilihan == "3":
+            if data_mahasiswa:
+                mhs, nilai = cari_mahasiswa_tertinggi(data_mahasiswa)
+                print(f"\nMahasiswa dengan nilai tertinggi:")
+                print(f"Nama: {mhs['nama']}")
+                print(f"NIM: {mhs['nim']}")
+                print(f"Nilai Akhir: {nilai}")
+                print(f"Grade: {tentukan_grade(nilai)}")
+            else:
+                print("\nTidak ada data mahasiswa.")
+        
+        elif pilihan == "4":
+            if data_mahasiswa:
+                mhs, nilai = cari_mahasiswa_terendah(data_mahasiswa)
+                print(f"\nMahasiswa dengan nilai terendah:")
+                print(f"Nama: {mhs['nama']}")
+                print(f"NIM: {mhs['nim']}")
+                print(f"Nilai Akhir: {nilai}")
+                print(f"Grade: {tentukan_grade(nilai)}")
+            else:
+                print("\nTidak ada data mahasiswa.")
+        
+        elif pilihan == "5":
+            grade = input("Masukkan grade (A/B/C/D/E): ").strip().upper()
+            if grade in ["A", "B", "C", "D", "E"]:
+                hasil = filter_by_grade(data_mahasiswa, grade)
+                print(f"\nMahasiswa dengan grade {grade}:")
+                tampilkan_data(hasil)
+            else:
+                print("Grade tidak valid!")
+        
+        elif pilihan == "6":
+            rata_rata = hitung_rata_rata_kelas(data_mahasiswa)
+            print(f"\nRata-rata nilai kelas: {rata_rata}")
+            print(f"Grade rata-rata kelas: {tentukan_grade(rata_rata)}")
+        
+        elif pilihan == "7":
+            print("\n=== STATISTIK KELAS ===")
+            print(f"Jumlah mahasiswa: {len(data_mahasiswa)}")
+            print(f"Rata-rata nilai: {hitung_rata_rata_kelas(data_mahasiswa)}")
+            
+            if data_mahasiswa:
+                mhs_tinggi, nilai_tinggi = cari_mahasiswa_tertinggi(data_mahasiswa)
+                mhs_rendah, nilai_rendah = cari_mahasiswa_terendah(data_mahasiswa)
+                print(f"Nilai tertinggi: {nilai_tinggi} ({mhs_tinggi['nama']})")
+                print(f"Nilai terendah: {nilai_rendah} ({mhs_rendah['nama']})")
+                
+                # Distribusi grade
+                print("\nDistribusi Grade:")
+                for grade in ["A", "B", "C", "D", "E"]:
+                    jumlah = len(filter_by_grade(data_mahasiswa, grade))
+                    print(f"Grade {grade}: {jumlah} mahasiswa")
+        
+        elif pilihan == "0":
+            print("\nTerima kasih telah menggunakan program ini!")
             break
-        else:
-            print("\n❌ Pilihan tidak valid! Silakan pilih menu 1-3 atau 0.")
         
-        input("\n⏎ Tekan Enter untuk melanjutkan...")
+        else:
+            print("\nPilihan tidak valid! Silakan coba lagi.")
 
 
+# Jalankan program
 if __name__ == "__main__":
-    main()
+    menu_utama()
