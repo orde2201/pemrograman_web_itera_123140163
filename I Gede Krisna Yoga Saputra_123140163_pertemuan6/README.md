@@ -2,7 +2,7 @@
 
 Aplikasi API sederhana untuk mengelola data matakuliah menggunakan **Pyramid Framework** dan **SQLite**. Menyediakan endpoint CRUD untuk operasi manajemen matakuliah.
 
-## 🚀 Cara Menjalankan
+##  Cara Menjalankan
 
 ### 1. Install Dependencies
 ```bash
@@ -22,7 +22,7 @@ python app.py
 
 Server akan berjalan di: **http://localhost:6543**
 
-## 📚 API Endpoints
+##  API Endpoints
 
 - `GET    /api/matakuliah`      - Ambil semua matakuliah
 - `GET    /api/matakuliah/{id}` - Ambil satu matakuliah
@@ -30,7 +30,7 @@ Server akan berjalan di: **http://localhost:6543**
 - `PUT    /api/matakuliah/{id}` - Update matakuliah
 - `DELETE /api/matakuliah/{id}` - Hapus matakuliah
 
-## 🎯 Contoh Testing
+##  Contoh Testing
 
 **Ambil semua matakuliah:**
 ```bash
