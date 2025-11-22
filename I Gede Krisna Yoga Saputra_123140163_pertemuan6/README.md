@@ -1,6 +1,6 @@
 # Aplikasi Manajemen Matakuliah dengan Pyramid
 
-Aplikasi API sederhana untuk mengelola data matakuliah menggunakan **Pyramid Framework** dan **SQLite**. Menyediakan endpoint CRUD lengkap untuk operasi manajemen matakuliah.
+Aplikasi API sederhana untuk mengelola data matakuliah menggunakan **Pyramid Framework** dan **SQLite**. Menyediakan endpoint CRUD untuk operasi manajemen matakuliah.
 
 ## 🚀 Cara Menjalankan
 
@@ -44,4 +44,3 @@ curl -X POST http://localhost:6543/api/matakuliah \
   -d '{"kode_mk":"MK004","nama_mk":"Jaringan Komputer","sks":3,"semester":5}'
 ```
 
-Aplikasi siap digunakan
