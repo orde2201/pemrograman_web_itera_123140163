@@ -17,7 +17,7 @@ python seed_data.py
 
 ### 3. Jalankan Server
 ```bash
-python app.py
+ pserve development.ini --reload
 ```
 
 Server akan berjalan di: **http://localhost:6543**
